@@ -1,7 +1,7 @@
-package com.loquie.singleton.lazy.safe;
+package com.loquie.singleton;
 
 /**
- * <b>懒汉式 线程安全 枚举</b>
+ * <b>枚举</b>
  * <ul>
  *     <b>优点</b>
  * <li>这借助 JDK1.5 中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。
@@ -12,7 +12,7 @@ package com.loquie.singleton.lazy.safe;
  * @author loquie
  * @date 2022/8/7 17:38
  */
-enum LazyEnum {
+enum Enum {
     INSTANCE;
     public void method() {
         System.out.println("method");

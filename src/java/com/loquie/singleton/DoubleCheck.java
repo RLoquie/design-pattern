@@ -1,9 +1,9 @@
-package com.loquie.singleton.lazy.safe;
+package com.loquie.singleton;
 
 import com.loquie.singleton.lazy.unsafe.LazySynchronizedCodeBlock;
 
 /**
- * <b>懒汉式 线程安全 双重检查</b>
+ * <b>双重检查 </b>
  * <ul>
  *     <b>优点</b>
  * <li>Double-Check 概念是多线程开发中常使用到的，如代码中所示，我们进行了两次 if (singleton == null) 检查，这样就可以保证线程安全了。
@@ -15,24 +15,24 @@ import com.loquie.singleton.lazy.unsafe.LazySynchronizedCodeBlock;
  * @author loquie
  * @date 2022/8/7 17:22
  */
-public class LazyDoubleCheck {
+public class DoubleCheck {
 
-    private LazyDoubleCheck() {
+    private DoubleCheck() {
 
     }
 
-    public static volatile LazyDoubleCheck instance;
+    public static volatile DoubleCheck instance;
 
     /**
      * 加入同步代码，解决线程不安全
      *
      * @return LazySynchronizedMethod
      */
-    public static synchronized LazyDoubleCheck getInstance() {
+    public static synchronized DoubleCheck getInstance() {
         if (instance == null) {
             synchronized (LazySynchronizedCodeBlock.class) {
                 if (instance == null) {
-                    instance = new LazyDoubleCheck();
+                    instance = new DoubleCheck();
                 }
             }
         }
